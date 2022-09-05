@@ -25,7 +25,7 @@
 
     <ion-item>
       <ion-label position="floating"> Telefone:</ion-label>
-      <ion-input type="number" [(ngModel)]="cliente.tel" formControlName="tel"></ion-input>
+      <ion-input type="tel" [(ngModel)]="cliente.tel" formControlName="tel"></ion-input>
       <small class="error"  *ngIf="(clienteForm.get('tel').errors?.required) && form.submitted">Informe numero de telefone</small>
     </ion-item>
   

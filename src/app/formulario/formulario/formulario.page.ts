@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NumberValueAccessor, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario',
@@ -26,7 +26,7 @@ export class FormularioPage implements OnInit {
     this.clienteForm = this.formBuilder.group({
       nome: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])],
       email: ['', Validators.compose([Validators.required, Validators.email])],
-      tel: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(50)])]
+      tel: ['', [Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(9), Validators.maxLength(15)]]
     })
   }
 
