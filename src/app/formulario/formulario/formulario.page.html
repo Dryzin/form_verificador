@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title id="Titulo">Contato</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content >
+
+  <form #form="ngForm" [formGroup]="clienteForm" (ngSubmit)="enviar()">
+    
+   <div id="conteudo">
+
+    <ion-item>
+      <ion-label position="floating"> Nome:</ion-label>
+      <ion-input [(ngModel)]="cliente.nome" formControlName="nome"></ion-input>
+      <small class="error"  *ngIf="(clienteForm.get('nome').errors?.required || clienteForm.get('nome').errors?.minlength || clienteForm.get('nome').errors?.maxlength) && form.submitted" >Nome invalio, informe um nome de 3 a 50 caracteres</small>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating"> Email:</ion-label>
+      <ion-input [(ngModel)]="cliente.email" formControlName="email"></ion-input>
+      <small class="error" *ngIf="(clienteForm.get('email').errors?.required || clienteForm.get('email').errors?.email) && form.submitted" >Email invalido, Informa um email@teste </small>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating"> Telefone:</ion-label>
+      <ion-input type="number" [(ngModel)]="cliente.tel" formControlName="tel"></ion-input>
+      <small class="error"  *ngIf="(clienteForm.get('tel').errors?.required) && form.submitted">Informe numero de telefone</small>
+    </ion-item>
+  
+    <ion-button class="button" type="submit">Confirmar</ion-button>
+  </div> 
+
+  </form>
+</ion-content>
