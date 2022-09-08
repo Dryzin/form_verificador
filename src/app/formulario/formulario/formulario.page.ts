@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './formulario.page.html',
   styleUrls: ['./formulario.page.scss'],
 })
+
 export class FormularioPage implements OnInit {
 
   cliente = {}
@@ -26,7 +27,8 @@ export class FormularioPage implements OnInit {
     this.clienteForm = this.formBuilder.group({
       nome: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])],
       email: ['', Validators.compose([Validators.required, Validators.email])],
-      tel: ['', [Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(9), Validators.maxLength(15)]]
+      tel: ['', [Validators.required, Validators.minLength(14)]],
+      cpf: ['', [Validators.required, Validators.minLength(14)]]
     })
   }
 

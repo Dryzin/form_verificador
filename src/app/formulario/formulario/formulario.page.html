@@ -26,11 +26,17 @@
 
     <ion-item>
       <ion-label position="floating"> Telefone:</ion-label>
-      <ion-input type="tel" [(ngModel)]="cliente.tel" formControlName="tel"></ion-input>
-      <small class="error"  *ngIf="(clienteForm.get('tel').errors?.required || clienteForm.get('tel').errors?.maxlength || clienteForm.get('tel').errors?.minlength) && form.submitted">Informe número de telefone válido (Min: 8 díg)</small>
-
+      <ion-input type="tel" [(ngModel)]="cliente.tel" formControlName="tel" simpleMask="(99)99999-9999"></ion-input>
+      <small class="error"  *ngIf="(clienteForm.get('tel').errors?.required || clienteForm.get('tel').errors?.minlength) && form.submitted">Informe número de telefone válido (Min: 8 díg)</small>
     </ion-item>
-  
+
+    <ion-item>
+      <ion-label position="floating"> CPF:</ion-label>
+      <ion-input [(ngModel)]="cliente.cpf" formControlName="cpf" simpleMask="999.999.999-99" [clearIfNotMatch]="true"></ion-input>
+      <small class="error"  *ngIf="(clienteForm.get('cpf').errors?.required || clienteForm.get('cpf').errors?.minlength) && form.submitted">Informe número de cpf válido</small>
+    </ion-item>
+
+
     <ion-button class="button" type="submit">Confirmar</ion-button>
   </div> 
 
